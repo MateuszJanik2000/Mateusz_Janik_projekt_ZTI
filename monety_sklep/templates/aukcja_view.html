@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<h1 style="color:#cccccc;">Sklep</h1>
+
+    {% for coin_auk in monety_sklep %} <!-- template tag tak to się w Django nazywa -->
+        <div class="col">
+        <div class="card">
+            <img src="{{ coin_auk.picture_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ coin_auk.title }}</h5>
+                <p class="card-text"><h6>Cena: </h6>{{ coin_auk.price }} zł</p>
+                <p class="card-text"><h6>Rok: </h6>{{ coin_auk.year }}</p>
+                <p class="card-text"><h6>Nakład: </h6>{{ coin_auk.total }}</p>
+                <p class="card-text"><h6>Opis: </h6>{{ coin_auk.description }}</p>
+                <a class="btn btn-dark" href="http://127.0.0.1:8000/pay/">Kup teraz </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+{% endblock %}

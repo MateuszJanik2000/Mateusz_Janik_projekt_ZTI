@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<h1 style="color:#cccccc;">Moje monety</h1>
+
+    {% for coin_katalog in monety_katalog %} <!-- template tag tak to się w Django nazywa -->
+        <div class="container">
+            <div class="p-3 mb-2 bg-white text-dark">
+            <div class="row">
+                <div class="col">
+                <img src="{{ coin_katalog.picture_url }}" class="img-thumbnail" alt="...">
+                </div>
+                <h5 class="col"><div class="p-3 mb-2 bg-white text-dark">{{ coin_katalog.title }}</div></h5>
+                <p class="col"><div class="p-3 mb-2 bg-white text-dark"><h6>Rok: </h6>{{ coin_katalog.year }}</div></p>
+                <p class="col"><div class="p-3 mb-2 bg-white text-dark"><h6>Nakład: </h6>{{ coin_katalog.total }}</div></p>
+                <p class="col"><div class="p-3 mb-2 bg-white text-dark"><h6>Uwagi: </h6>{{ coin_katalog.description }}</div></p>
+            </div>
+            </div>
+    </div>
+    <br>
+    {% endfor %}
+{% endblock %}

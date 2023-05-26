@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<body>
+  <style>
+    body {
+        background-image: url("https://cdn.wallpapersafari.com/30/91/KoI4FZ.jpg");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        }
+  </style>
+<h2 style="color:#cccccc;">Zapłać za zakupy kodem BLIK</h2>
+ <form class="form-inline">
+  <div class="form-group mb-2">
+    <input type="text" class="form-control" placeholder="Wpisz kod BLIK" maxlength="6">
+    <a class="btn btn-dark" href="http://127.0.0.1:8000/">Płacę</a>
+  </div>
+ </form>
+</body>
+{% endblock %}

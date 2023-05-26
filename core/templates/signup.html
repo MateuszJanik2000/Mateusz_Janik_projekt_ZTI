@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 style="color:#cccccc;">Załóż konto</h2>
+  <form style="color: grey;" method="post">{% csrf_token %}
+    {% for field in sign_up_form %}
+      <table style="width: 850px; height: 50px;">
+      <p>
+         <tr>
+        <td style="width: 20%; height: 50px;">
+          {% if 'username' in field.label_tag %}
+            <span>Nazwa użytkownika:</span>
+          {% elif 'password' in field.label_tag %}
+            <span>Hasło:</span>
+          {% else %}
+            {{ field.label_tag }}
+          {% endif %}
+        </td>
+           <td>{{ field }}</td>
+        <td style="width: 60%; height: 50px;">
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        </td>
+        </tr>
+      </p>
+      </table>
+    {% endfor %}
+    <button class="btn btn-primary" style="background-color: grey; border-color:black" type="submit">Załóż konto</button>
+  </form>
+{% endblock %}
